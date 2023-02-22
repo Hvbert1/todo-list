@@ -1,20 +1,39 @@
 let defaultArray = [];
 
+const project = (name) => {
+    let tasks = []
+    return {name, tasks};
+}
+
 const task = (title, description, dueDate, priority) => {
     return { title, description, dueDate, priority };
 }
+
+let defaultProject = project("Default");
+let testTask = task ("hi", "work");
+defaultProject.tasks.push(testTask);
+
+console.log(testTask);
+console.log(defaultProject);
 
 function createTask() {
     let title = document.getElementById("title").value;
     let description = document.getElementById("desc").value;
     let priority = document.querySelector('input[name="priority"]:checked').value;
 
-    const newTask = task(title, description, priority);
+    const newTask = task(title, description, "", priority);
 
     defaultArray.push(newTask);
 
     console.log(defaultArray);
     console.log(newTask);
+}
+
+
+function createProject() {
+    let projectName = document.getElementById("project").value;
+    const newProject = project(projectName);
+    console.log(newProject);
 }
 
 function createForm() {
@@ -62,4 +81,27 @@ function createForm() {
     document.getElementById("content").appendChild(form);
 }
 
+function createArea() {
+    let form1 = document.createElement("form");
+    form1.setAttribute("action", "");
+    form1.setAttribute("method", "post");
+
+    let project = document.createElement("input");
+    project.setAttribute("type", "text");
+    project.id = "project";
+
+    let btn = document.createElement("button");
+    btn.setAttribute("type", "submit");
+    btn.onclick = function test(e) {
+        e.preventDefault();
+        createProject();
+    }
+
+    form1.append(project);
+    form1.append(btn);
+
+    document.getElementById("content").appendChild(form1);
+}
+
+createArea();
 createForm();
