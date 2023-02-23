@@ -1,5 +1,8 @@
 import task, { createTask } from './task.js'
 import project, { createProject } from './project.js'
+import { compareAsc, format } from 'date-fns'
+
+console.log(format(new Date(2014, 1, 11), 'yyyy-MM-dd'));
 
 const testTask = task("test");
 console.log(testTask)
@@ -19,6 +22,10 @@ function createForm() {
     let desc = document.createElement("input");
     title.setAttribute("type", "text");
     desc.id = "desc";
+
+    let date = document.createElement("input");
+    date.setAttribute("type", "date");
+    date.id = "date";
 
     let btn = document.createElement("button");
     btn.setAttribute("type", "submit");
@@ -47,6 +54,7 @@ function createForm() {
     form.append(priorityBtn3);
     form.append(title);
     form.append(desc);
+    form.append(date);
     form.append(btn);
 
     document.getElementById("content").appendChild(form);
