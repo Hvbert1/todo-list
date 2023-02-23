@@ -2,3 +2,24 @@
     margin: 0;
     padding: 0;
 }
+
+#content {
+    display: flex;
+}
+
+#projectArea {
+    display: flex;
+    flex-direction: column;
+    background-color: pink;
+}
+
+#taskArea {
+    display: flex;
+    flex-direction: column;
+    background-color: purple;
+}
+
+button {
+    background-color: #4CAF50;
+    padding: 15px 32px;
+  }
