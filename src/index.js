@@ -1,5 +1,5 @@
 import task, { createTask } from './task.js'
-import project, { createProject } from './project.js'
+import project, { createProject, displayProject } from './project.js'
 import { compareAsc, format } from 'date-fns'
 import './style.css';
 
@@ -84,13 +84,6 @@ function createArea() {
 
     document.getElementById("content").appendChild(projectArea);
     document.getElementById("projectArea").appendChild(projectForm);
-}
-
-function displayProject() {
-    let projectName = document.createElement("div");
-    projectName.innerHTML = document.getElementById("project").value;
-
-    document.getElementById("projectArea").appendChild(projectName);
 }
 
 createArea();
