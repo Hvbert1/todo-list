@@ -1,40 +1,11 @@
-let defaultArray = [];
+import task, { createTask } from './task.js'
+import project, { createProject } from './project.js'
 
-const project = (name) => {
-    let tasks = []
-    return {name, tasks};
-}
-
-const task = (title, description, dueDate, priority) => {
-    return { title, description, dueDate, priority };
-}
+const testTask = task("test");
+console.log(testTask)
 
 let defaultProject = project("Default");
-let testTask = task ("hi", "work");
-defaultProject.tasks.push(testTask);
-
-console.log(testTask);
 console.log(defaultProject);
-
-function createTask() {
-    let title = document.getElementById("title").value;
-    let description = document.getElementById("desc").value;
-    let priority = document.querySelector('input[name="priority"]:checked').value;
-
-    const newTask = task(title, description, "", priority);
-
-    defaultArray.push(newTask);
-
-    console.log(defaultArray);
-    console.log(newTask);
-}
-
-
-function createProject() {
-    let projectName = document.getElementById("project").value;
-    const newProject = project(projectName);
-    console.log(newProject);
-}
 
 function createForm() {
     let form = document.createElement("form");
