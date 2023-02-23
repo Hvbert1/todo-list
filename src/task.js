@@ -16,6 +16,11 @@ export function createTask() {
 
     defaultProject.tasks.push(newTask);
     console.log(defaultProject);
+
+    for (let i = 0; i < defaultProject.tasks.length; i++) {
+        console.log("Hello World");
+    }
+
 }
 
 export default task;
