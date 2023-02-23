@@ -1,14 +1,9 @@
 import task, { createTask } from './task.js'
 import project, { createProject } from './project.js'
 import { compareAsc, format } from 'date-fns'
+import './style.css';
 
 console.log(format(new Date(2014, 1, 11), 'yyyy-MM-dd'));
-
-const testTask = task("test");
-console.log(testTask)
-
-let defaultProject = project("Default");
-console.log(defaultProject);
 
 function createForm() {
     let form = document.createElement("form");
