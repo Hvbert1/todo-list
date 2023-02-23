@@ -6,9 +6,12 @@ import './style.css';
 console.log(format(new Date(2014, 1, 11), 'yyyy-MM-dd'));
 
 function createForm() {
-    let form = document.createElement("form");
-    form.setAttribute("action", "");
-    form.setAttribute("method", "post");
+    let taskArea = document.createElement("div");
+    taskArea.id = "taskArea";
+
+    let taskForm = document.createElement("form");
+    taskForm.setAttribute("action", "");
+    taskForm.setAttribute("method", "post");
 
     let title = document.createElement("input");
     title.setAttribute("type", "text");
@@ -44,21 +47,25 @@ function createForm() {
     priorityBtn3.setAttribute("name", "priority");
     priorityBtn3.value = "high";
 
-    form.append(priorityBtn1);
-    form.append(priorityBtn2);
-    form.append(priorityBtn3);
-    form.append(title);
-    form.append(desc);
-    form.append(date);
-    form.append(btn);
+    taskForm.append(priorityBtn1);
+    taskForm.append(priorityBtn2);
+    taskForm.append(priorityBtn3);
+    taskForm.append(title);
+    taskForm.append(desc);
+    taskForm.append(date);
+    taskForm.append(btn);
 
-    document.getElementById("content").appendChild(form);
+    document.getElementById("content").appendChild(taskArea);
+    document.getElementById("taskArea").appendChild(taskForm);
 }
 
 function createArea() {
-    let form1 = document.createElement("form");
-    form1.setAttribute("action", "");
-    form1.setAttribute("method", "post");
+    let projectArea = document.createElement("div")
+    projectArea.id = "projectArea";
+
+    let projectForm = document.createElement("form");
+    projectForm.setAttribute("action", "");
+    projectForm.setAttribute("method", "post");
 
     let project = document.createElement("input");
     project.setAttribute("type", "text");
@@ -69,12 +76,21 @@ function createArea() {
     btn.onclick = function test(e) {
         e.preventDefault();
         createProject();
+        displayProject();
     }
 
-    form1.append(project);
-    form1.append(btn);
+    projectForm.append(project);
+    projectForm.append(btn);
 
-    document.getElementById("content").appendChild(form1);
+    document.getElementById("content").appendChild(projectArea);
+    document.getElementById("projectArea").appendChild(projectForm);
+}
+
+function displayProject() {
+    let projectName = document.createElement("div");
+    projectName.innerHTML = document.getElementById("project").value;
+
+    document.getElementById("projectArea").appendChild(projectName);
 }
 
 createArea();
