@@ -22,6 +22,31 @@ export function appendTask() {
     console.log(newTask);
     console.log(selectedProject);
     selectedProject.tasks.push(newTask);
+    displayTask(selectedProject);
+}
+
+export function displayTask(project) {
+    for (let i = 0; i < project.tasks.length; i++) {
+        let taskDiv = document.createElement("div");
+        let taskName = document.createElement("div");
+        let taskDesc = document.createElement("div");
+        let taskDate = document.createElement("div");
+        let taskPrio = document.createElement("div");
+        
+        taskName.innerHTML = project.tasks[i].title;
+        taskDesc.innerHTML  = project.tasks[i].description;
+        taskDate.innerHTML = project.tasks[i].dueDate;
+        taskPrio.innerHTML = project.tasks[i].priority;
+
+        taskDiv.id = i;
+
+        taskDiv.append(taskName);
+        taskDiv.append(taskDesc);
+        taskDiv.append(taskDate);
+        taskDiv.append(taskPrio);
+
+        document.getElementById("taskArea").appendChild(taskDiv);
+    }
 }
 
 export default task;
