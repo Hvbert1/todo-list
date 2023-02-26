@@ -2,7 +2,7 @@ import project, { createProject, displayProject, selectedProject} from './projec
 
 let defaultProject = project("Default");
 
-const task = (title, description, dueDate, priority) => {
+export const task = (title, description, dueDate, priority) => {
     return { title, description, dueDate, priority };
 }
 
@@ -21,7 +21,6 @@ export function appendTask() {
     let newTask = createTask()
     console.log(newTask);
     console.log(selectedProject);
-
     selectedProject.tasks.push(newTask);
 }
 
