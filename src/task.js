@@ -1,4 +1,4 @@
-import project, { createProject } from './project.js'
+import project, { createProject, displayProject, selectedProject} from './project.js'
 
 let defaultProject = project("Default");
 
@@ -14,13 +14,15 @@ export function createTask() {
 
     const newTask = task(title, description, date, priority);
 
-    defaultProject.tasks.push(newTask);
-    console.log(defaultProject);
+    return newTask;
+}
 
-    for (let i = 0; i < defaultProject.tasks.length; i++) {
-        console.log("Hello World");
-    }
+export function appendTask() {
+    let newTask = createTask()
+    console.log(newTask);
+    console.log(selectedProject);
 
+    selectedProject.tasks.push(newTask);
 }
 
 export default task;

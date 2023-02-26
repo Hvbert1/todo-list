@@ -1,4 +1,4 @@
-import task, { createTask } from './task.js'
+import task, { createTask , appendTask} from './task.js'
 import project, { createProject, displayProject } from './project.js'
 import { compareAsc, format } from 'date-fns'
 import './style.css';
@@ -29,7 +29,7 @@ function createForm() {
     btn.setAttribute("type", "submit");
     btn.onclick = function test(e) {
         e.preventDefault();
-        createTask();
+        appendTask();
     }
 
     let priorityBtn1 = document.createElement("input");

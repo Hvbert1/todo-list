@@ -1,3 +1,7 @@
+import task, { createTask , appendTask} from './task.js'
+
+export let selectedProject;
+
 const project = (name) => {
     let tasks = [];
     return {name, tasks};
@@ -20,8 +24,8 @@ export function displayProject() {
     //create and append new task divs onto the taskArea
     projectDiv.addEventListener("click", function(){
         for (let i = 0; i < project.tasks.length; i++) {
-            console.log("Hello World");
         }
+        selectedProject = project;
     });
 }
 
