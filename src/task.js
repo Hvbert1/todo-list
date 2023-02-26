@@ -22,6 +22,7 @@ export function appendTask() {
     console.log(newTask);
     console.log(selectedProject);
     selectedProject.tasks.push(newTask);
+    resetTask();
     displayTask(selectedProject);
 }
 
@@ -45,8 +46,12 @@ export function displayTask(project) {
         taskDiv.append(taskDate);
         taskDiv.append(taskPrio);
 
-        document.getElementById("taskArea").appendChild(taskDiv);
+        document.getElementById("taskSpace").appendChild(taskDiv);
     }
+}
+
+export function resetTask() {
+    document.getElementById("taskSpace").innerHTML = "";
 }
 
 export default task;

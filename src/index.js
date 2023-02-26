@@ -5,9 +5,12 @@ import './style.css';
 
 console.log(format(new Date(2014, 1, 11), 'yyyy-MM-dd'));
 
-function createForm() {
+function createTaskForm() {
     let taskArea = document.createElement("div");
     taskArea.id = "taskArea";
+
+    let taskSpace = document.createElement("div");
+    taskSpace.id = "taskSpace";
 
     let taskForm = document.createElement("form");
     taskForm.setAttribute("action", "");
@@ -57,9 +60,10 @@ function createForm() {
 
     document.getElementById("content").appendChild(taskArea);
     document.getElementById("taskArea").appendChild(taskForm);
+    document.getElementById("taskArea").appendChild(taskSpace);
 }
 
-function createArea() {
+function createProjectForm() {
     let projectArea = document.createElement("div")
     projectArea.id = "projectArea";
 
@@ -86,5 +90,5 @@ function createArea() {
     document.getElementById("projectArea").appendChild(projectForm);
 }
 
-createArea();
-createForm();
+createProjectForm();
+createTaskForm();
