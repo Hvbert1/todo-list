@@ -5,21 +5,46 @@
 
 #content {
     display: flex;
+    height: 100vh;
 }
 
 #projectArea {
     display: flex;
     flex-direction: column;
-    background-color: pink;
+    background-color: #2a2a2a;
+    align-items: center;
+    color: #E7E7E6;
+    gap: 1rem;
+}
+
+#projectArea div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #6693A8;
+    font-size: 2rem;
+    border-radius: 5px;
 }
 
 #taskArea {
     display: flex;
     flex-direction: column;
-    background-color: purple;
+    background-color: #121212;
+    color: #E7E7E6;
+}
+
+#taskSpace div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #6693A8;
+    font-size: 2rem;
+    border-radius: 5px;
 }
 
 button {
-    background-color: #4CAF50;
+    background-color: #6693A8;
     padding: 15px 32px;
   }
