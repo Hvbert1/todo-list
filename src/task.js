@@ -40,6 +40,7 @@ export function displayTask(project) {
         taskPrio.innerHTML = project.tasks[i].priority;
 
         taskDiv.id = i;
+        taskDiv.classList.add('expendable');
 
         taskDiv.append(taskName);
         taskDiv.append(taskDesc);
