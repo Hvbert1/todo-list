@@ -26,6 +26,8 @@ export function appendTask() {
 }
 
 export function displayTask(project) {
+    resetTask();
+
     for (let i = 0; i < project.tasks.length; i++) {
         let taskDiv = document.createElement("div");
         let taskName = document.createElement("div");
@@ -55,19 +57,15 @@ export function displayTask(project) {
         taskDiv.append(taskCheck);
 
         taskCheck.addEventListener('click', function() {
-            console.log("hi")
-            checkTask(taskDiv)
+            checkTask(taskDiv);
         })
 
-        resetTask();
         document.getElementById("taskSpace").appendChild(taskDiv);
     }
 }
 
 export function checkTask(task) {
-    if (task.id > -1) {
-        selectedProject.tasks.splice(task.id, 1);
-    }
+    selectedProject.tasks.splice(task.id, 1);
     displayTask(selectedProject);
 }
 
