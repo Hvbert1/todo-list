@@ -1,4 +1,5 @@
 import project, { createProject, displayProject, selectedProject} from './project.js'
+import { parseISO, format } from 'date-fns'
 
 let defaultProject = project("Default");
 
@@ -10,9 +11,10 @@ export function createTask() {
     let title = document.getElementById("title").value;
     let description = document.getElementById("desc").value;
     let date = document.getElementById("date").value;
+    let newDate = (format(parseISO(date), "dd-MM-yyyy"));
     let priority = document.querySelector('input[name="priority"]:checked').value;
 
-    const newTask = task(title, description, date, priority);
+    const newTask = task(title, description, newDate, priority);
 
     return newTask;
 }
