@@ -39,6 +39,12 @@ export function displayTask(project) {
         taskDate.innerHTML = project.tasks[i].dueDate;
         taskPrio.innerHTML = project.tasks[i].priority;
 
+        taskName.classList.add("taskName");
+        taskDesc.classList.add("taskDesc");
+        taskDate.classList.add("taskDate");
+        taskPrio.classList.add("taskPrio");
+        taskCheck.classList.add("taskCheck");
+
         taskDiv.id = i;
         taskDiv.classList.add('expendable');
 
