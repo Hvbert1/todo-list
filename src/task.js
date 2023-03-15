@@ -1,7 +1,5 @@
-import project, { createProject, displayProject, selectedProject} from './project.js'
+import project, { selectedProject, projectList} from './project.js'
 import { parseISO, format } from 'date-fns'
-
-let defaultProject = project("Default");
 
 export const task = (title, description, dueDate, priority) => {
     return { title, description, dueDate, priority };
@@ -20,9 +18,8 @@ export function createTask() {
 }
 
 export function appendTask() {
-    let newTask = createTask()
-    console.log(newTask);
     console.log(selectedProject);
+    let newTask = createTask()
     selectedProject.tasks.push(newTask);
     displayTask(selectedProject);
 }
