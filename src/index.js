@@ -1,9 +1,6 @@
 import task, { createTask , appendTask} from './task.js'
-import project, { createProject, displayProject } from './project.js'
-import { compareAsc, format } from 'date-fns'
+import project, { createProject, appendProject } from './project.js'
 import './style.css';
-
-console.log(format(new Date(2014, 1, 11), 'yyyy-MM-dd'));
 
 function createTaskForm() {
     let taskArea = document.createElement("div");
@@ -67,6 +64,9 @@ function createProjectForm() {
     let projectArea = document.createElement("div")
     projectArea.id = "projectArea";
 
+    let projectSpace = document.createElement("div");
+    projectSpace.id = "projectSpace";
+
     let projectForm = document.createElement("form");
     projectForm.setAttribute("action", "");
     projectForm.setAttribute("method", "post");
@@ -79,8 +79,7 @@ function createProjectForm() {
     btn.setAttribute("type", "submit");
     btn.onclick = function test(e) {
         e.preventDefault();
-        createProject();
-        displayProject();
+        appendProject();
     }
 
     projectForm.append(project);
@@ -88,6 +87,7 @@ function createProjectForm() {
 
     document.getElementById("content").appendChild(projectArea);
     document.getElementById("projectArea").appendChild(projectForm);
+    document.getElementById("projectArea").appendChild(projectSpace);    
 }
 
 createProjectForm();
