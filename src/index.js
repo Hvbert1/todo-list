@@ -2,6 +2,48 @@ import task, { createTask , appendTask} from './task.js'
 import project, { createProject, appendProject } from './project.js'
 import './style.css';
 
+function createProjectForm() {
+    let projectArea = document.createElement("div");
+    projectArea.id = "projectArea";
+
+    let title = document.createElement("div");
+    title.id = "title";
+    title.innerHTML = "Todo-list";
+
+    let projectSpace = document.createElement("div");
+    projectSpace.id = "projectSpace";
+
+    let projectTitle = document.createElement("div");
+    projectTitle.id = "projectTitle";
+    projectTitle.innerHTML = "My Lists";
+
+    let projectForm = document.createElement("form");
+    projectForm.setAttribute("action", "");
+    projectForm.setAttribute("method", "post");
+
+    let project = document.createElement("input");
+    project.setAttribute("type", "text");
+    project.value = "Default List";
+    project.id = "project";
+
+    let btn = document.createElement("button");
+    btn.innerHTML = "+";
+    btn.setAttribute("type", "submit");
+    btn.onclick = function test(e) {
+        e.preventDefault();
+        appendProject();
+    }
+
+    projectForm.append(project);
+    projectForm.append(btn);
+
+    document.getElementById("content").appendChild(projectArea);
+    document.getElementById("projectArea").appendChild(title);
+    document.getElementById("projectArea").appendChild(projectTitle);
+    document.getElementById("projectArea").appendChild(projectSpace);
+    document.getElementById("projectArea").appendChild(projectForm); 
+}
+
 function createTaskForm() {
     let taskArea = document.createElement("div");
     taskArea.id = "taskArea";
@@ -58,36 +100,6 @@ function createTaskForm() {
     document.getElementById("content").appendChild(taskArea);
     document.getElementById("taskArea").appendChild(taskForm);
     document.getElementById("taskArea").appendChild(taskSpace);
-}
-
-function createProjectForm() {
-    let projectArea = document.createElement("div")
-    projectArea.id = "projectArea";
-
-    let projectSpace = document.createElement("div");
-    projectSpace.id = "projectSpace";
-
-    let projectForm = document.createElement("form");
-    projectForm.setAttribute("action", "");
-    projectForm.setAttribute("method", "post");
-
-    let project = document.createElement("input");
-    project.setAttribute("type", "text");
-    project.id = "project";
-
-    let btn = document.createElement("button");
-    btn.setAttribute("type", "submit");
-    btn.onclick = function test(e) {
-        e.preventDefault();
-        appendProject();
-    }
-
-    projectForm.append(project);
-    projectForm.append(btn);
-
-    document.getElementById("content").appendChild(projectArea);
-    document.getElementById("projectArea").appendChild(projectForm);
-    document.getElementById("projectArea").appendChild(projectSpace);    
 }
 
 createProjectForm();
