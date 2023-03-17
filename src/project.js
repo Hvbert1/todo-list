@@ -31,13 +31,24 @@ export function displayProject() {
 
         projectDiv.id = i;
         projectDiv.innerHTML = projectList[i].name;
+        projectDel.classList.add("delProject");
+        projectDel.innerHTML = "x";
 
         document.getElementById("projectSpace").appendChild(projectDiv);
         projectDiv.appendChild(projectDel);
 
         projectDiv.addEventListener("click", function(e){
+            // Remove the selected class from all projectDiv elements
+            let projectDivs = document.querySelectorAll("#projectSpace div");
+            projectDivs.forEach(function(element) {
+                element.classList.remove("selected");
+            });
+
             selectedProject = projectList[e.target.id];
             displayTask(projectList[e.target.id]);
+
+            // Add the selected class to the clicked element
+            e.target.classList.add("selected");
         });
 
         projectDel.addEventListener("click", function(){
@@ -45,6 +56,7 @@ export function displayProject() {
         });
     }
 }
+
 
 export function delProject(project) {
     projectList.splice(project.id, 1)
