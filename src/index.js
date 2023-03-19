@@ -1,5 +1,5 @@
 import task, { createTask , appendTask} from './task.js'
-import project, { createProject, appendProject } from './project.js'
+import storedTest, { displayProject, appendProject } from './project.js'
 import './style.css';
 
 function createProjectForm() {
@@ -104,3 +104,4 @@ function createTaskForm() {
 
 createProjectForm();
 createTaskForm();
+displayProject();

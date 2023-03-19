@@ -15,4 +15,10 @@ module.exports = {
     ],
   },
   devtool: 'inline-source-map',
+  performance: {
+    maxAssetSize: 1000000
+  },
+  performance: {
+    hints: false
+  }
 };

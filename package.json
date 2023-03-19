@@ -26,5 +26,9 @@
   },
   "dependencies": {
     "date-fns": "^2.29.3"
+  },
+  "scripts": {
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production"
   }
 }

@@ -2,6 +2,7 @@ import task, { createTask , appendTask, displayTask, resetTask} from './task.js'
 
 export let projectList= [];
 export let selectedProject;
+export let storedTest;
 
 const project = (name) => {
     let tasks = [];
@@ -19,18 +20,24 @@ export function appendProject() {
     let newProject = createProject();
 
     projectList.push(newProject);
+
+    localStorage.setItem('projects', JSON.stringify(projectList));
+    storedTest = JSON.parse(localStorage.getItem("projects"));
+
     displayProject();
 }
 
 export function displayProject() {
     resetProject();
+    storedTest = JSON.parse(localStorage.getItem("projects"));
 
-    for (let i = 0; i < projectList.length; i++) {
+    for (let i = 0; i < storedTest.length; i++) {
+        console.log(storedTest[i]) 
         let projectDiv = document.createElement("div");
         let projectDel = document.createElement("div");
 
         projectDiv.id = i;
-        projectDiv.innerHTML = projectList[i].name;
+        projectDiv.innerHTML = storedTest[i].name;
         projectDel.classList.add("delProject");
         projectDel.innerHTML = "x";
 
@@ -45,7 +52,7 @@ export function displayProject() {
             });
 
             selectedProject = projectList[e.target.id];
-            displayTask(projectList[e.target.id]);
+            displayTask(storedTest[e.target.id]);
 
             // Add the selected class to the clicked element
             e.target.classList.add("selected");
@@ -57,7 +64,6 @@ export function displayProject() {
     }
 }
 
-
 export function delProject(project) {
     projectList.splice(project.id, 1)
     displayProject();
@@ -68,3 +74,4 @@ export function resetProject() {
 }
 
 export default project;
+
