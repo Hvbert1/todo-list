@@ -1,5 +1,5 @@
-import task, { createTask , appendTask} from './task.js'
-import storedTest, { displayProject, appendProject } from './project.js'
+import { appendTask } from './task.js'
+import { displayProject, appendProject } from './project.js'
 import './style.css';
 
 function createProjectForm() {
@@ -89,12 +89,12 @@ function createTaskForm() {
     priorityBtn3.setAttribute("name", "priority");
     priorityBtn3.value = "high";
 
-    taskForm.append(priorityBtn1);
-    taskForm.append(priorityBtn2);
-    taskForm.append(priorityBtn3);
     taskForm.append(title);
     taskForm.append(desc);
     taskForm.append(date);
+    taskForm.append(priorityBtn1);
+    taskForm.append(priorityBtn2);
+    taskForm.append(priorityBtn3);
     taskForm.append(btn);
 
     document.getElementById("content").appendChild(taskArea);
