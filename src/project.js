@@ -32,7 +32,6 @@ export function displayProject() {
     storedTest = JSON.parse(localStorage.getItem("projects"));
 
     for (let i = 0; i < storedTest.length; i++) {
-        console.log(storedTest[i]) 
         let projectDiv = document.createElement("div");
         let projectDel = document.createElement("div");
 
@@ -52,7 +51,12 @@ export function displayProject() {
             });
 
             selectedProject = projectList[e.target.id];
-            displayTask(storedTest[e.target.id]);
+
+            if(selectedProject == null) {
+                displayTask(storedTest[e.target.id]);
+            } else {
+                displayTask(selectedProject);
+            }
 
             // Add the selected class to the clicked element
             e.target.classList.add("selected");
@@ -66,12 +70,28 @@ export function displayProject() {
 
 export function delProject(project) {
     projectList.splice(project.id, 1)
+
+    localStorage.setItem('projects', JSON.stringify(projectList));
+    storedTest = JSON.parse(localStorage.getItem("projects"));
+
     displayProject();
 }
 
 export function resetProject() {
     document.getElementById("projectSpace").innerHTML = "";
 }
+
+export function loadProjects() {
+    storedTest = JSON.parse(localStorage.getItem("projects"));
+
+    for (let i = 0; i < storedTest.length; i++) {
+        projectList[i] = storedTest[i];
+        console.log(storedTest[i]);
+    }
+    
+}
+
+loadProjects();
 
 export default project;
 

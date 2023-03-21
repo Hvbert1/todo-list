@@ -20,10 +20,8 @@ export function createTask() {
 export function appendTask() {
     let newTask = createTask();
     selectedProject.tasks.push(newTask);
-    console.log(projectList);
     localStorage.setItem('projects', JSON.stringify(projectList));
-    // console.log(selectedProject);
-    console.log(projectList);
+    displayTask(selectedProject);
 }
 
 export function displayTask(project) {
@@ -68,6 +66,9 @@ export function displayTask(project) {
 export function checkTask(task) {
     selectedProject.tasks.splice(task.id, 1);
     displayTask(selectedProject);
+
+    localStorage.setItem('projects', JSON.stringify(projectList));
+    storedTest = JSON.parse(localStorage.getItem("projects"));
 }
 
 export function resetTask() {
