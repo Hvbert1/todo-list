@@ -1,4 +1,4 @@
-import project, { selectedProject, storedTest, projectList} from './project.js'
+import { selectedProject, saveProjects, projectList} from './project.js'
 import { parseISO, format } from 'date-fns'
 
 export const task = (title, description, dueDate, priority) => {
@@ -67,8 +67,7 @@ export function checkTask(task) {
     selectedProject.tasks.splice(task.id, 1);
     displayTask(selectedProject);
 
-    localStorage.setItem('projects', JSON.stringify(projectList));
-    storedTest = JSON.parse(localStorage.getItem("projects"));
+    saveProjects();
 }
 
 export function resetTask() {
