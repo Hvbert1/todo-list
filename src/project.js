@@ -1,8 +1,8 @@
-import task, { createTask , appendTask, displayTask, resetTask} from './task.js'
+import { displayTask } from './task.js'
 
-export let projectList= [];
+export let projectList = [];
 export let selectedProject;
-export let storedTest;
+export let storedProjects;
 
 const project = (name) => {
     let tasks = [];
@@ -18,25 +18,23 @@ export function createProject() {
 
 export function appendProject() {
     let newProject = createProject();
-
     projectList.push(newProject);
 
-    localStorage.setItem('projects', JSON.stringify(projectList));
-    storedTest = JSON.parse(localStorage.getItem("projects"));
-
+    saveProjects();
     displayProject();
 }
 
 export function displayProject() {
-    resetProject();
-    storedTest = JSON.parse(localStorage.getItem("projects"));
+    storedProjects = JSON.parse(localStorage.getItem("projects"));
 
-    for (let i = 0; i < storedTest.length; i++) {
+    resetProject();
+
+    for (let i = 0; i < storedProjects.length; i++) {
         let projectDiv = document.createElement("div");
         let projectDel = document.createElement("div");
 
         projectDiv.id = i;
-        projectDiv.innerHTML = storedTest[i].name;
+        projectDiv.innerHTML = storedProjects[i].name;
         projectDel.classList.add("delProject");
         projectDel.innerHTML = "x";
 
@@ -53,7 +51,7 @@ export function displayProject() {
             selectedProject = projectList[e.target.id];
 
             if(selectedProject == null) {
-                displayTask(storedTest[e.target.id]);
+                displayTask(storedProjects[e.target.id]);
             } else {
                 displayTask(selectedProject);
             }
@@ -71,9 +69,7 @@ export function displayProject() {
 export function delProject(project) {
     projectList.splice(project.id, 1)
 
-    localStorage.setItem('projects', JSON.stringify(projectList));
-    storedTest = JSON.parse(localStorage.getItem("projects"));
-
+    saveProjects();
     displayProject();
 }
 
@@ -82,16 +78,16 @@ export function resetProject() {
 }
 
 export function loadProjects() {
-    storedTest = JSON.parse(localStorage.getItem("projects"));
+    storedProjects = JSON.parse(localStorage.getItem("projects"));
 
-    for (let i = 0; i < storedTest.length; i++) {
-        projectList[i] = storedTest[i];
-        console.log(storedTest[i]);
-    }
-    
+    for (let i = 0; i < storedProjects.length; i++) {
+        projectList[i] = storedProjects[i];
+    }   
+}
+
+export function saveProjects() {
+    localStorage.setItem('projects', JSON.stringify(projectList));
+    storedProjects = JSON.parse(localStorage.getItem("projects"));
 }
 
 loadProjects();
-
-export default project;
-
