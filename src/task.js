@@ -6,7 +6,7 @@ export const task = (title, description, dueDate, priority) => {
 }
 
 export function createTask() {
-    let title = document.getElementById("title").value;
+    let title = document.getElementById("taskTitle").value;
     let description = document.getElementById("desc").value;
     let date = document.getElementById("date").value;
     let newDate = (format(parseISO(date), "dd-MM-yyyy"));

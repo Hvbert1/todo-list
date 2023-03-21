@@ -57,7 +57,7 @@ function createTaskForm() {
 
     let title = document.createElement("input");
     title.setAttribute("type", "text");
-    title.id = "title";
+    title.id = "taskTitle";
 
     let desc = document.createElement("input");
     title.setAttribute("type", "text");
