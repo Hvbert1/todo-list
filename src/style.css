@@ -53,6 +53,7 @@
     max-width: 90%;
     align-self: center;
     font-size: 1rem;
+    cursor: pointer;
 }
 
 #projectSpace .selected{
@@ -76,9 +77,21 @@
 #taskArea {
     display: flex;
     flex-direction: column;
+    align-items: center;
     background-color: #121212;
     color: #E7E7E6;
+    gap: 1rem;
 }
+
+#taskArea form {
+    display: flex;
+    flex-direction: column;
+    background-color: #2a2a2a;
+    width: 50%;
+    padding: 1rem;
+    gap: 1rem;
+}
+
 #taskSpace {
     display: flex;
     justify-content: center;
@@ -107,5 +120,6 @@ input[type=text] {
     padding: 8px 20px;
     margin: 8px 0;
     box-sizing: border-box;
+    outline-color: #6693A8;
 }
 
