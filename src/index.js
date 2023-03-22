@@ -71,12 +71,24 @@ function createTaskForm() {
     desc.id = "desc";
     desc.placeholder = "Add description"
 
+    let descLabel = document.createElement("label");
+    descLabel.htmlFor = "desc";
+    descLabel.innerHTML = "Description";
+
+    let prioTitle = document.createElement("div");
+    prioTitle.innerHTML = "Priority";
+
     let prio = document.createElement("div");
     prio.id = "priority"
 
     let date = document.createElement("input");
     date.setAttribute("type", "date");
     date.id = "date";
+
+    let dateLabel = document.createElement("label");
+    dateLabel.htmlFor = "date";
+    dateLabel.innerHTML = "Date";
+
 
     let btn = document.createElement("button");
     btn.setAttribute("type", "submit");
@@ -102,8 +114,12 @@ function createTaskForm() {
 
     taskForm.append(title);
     taskForm.append(hiddenForm);
+    
+    hiddenForm.append(descLabel);
     hiddenForm.append(desc);
+    hiddenForm.append(dateLabel);
     hiddenForm.append(date);
+    hiddenForm.append(prioTitle);
     hiddenForm.append(prio);
     hiddenForm.append(btn);
 
