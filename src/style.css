@@ -123,3 +123,7 @@ input[type=text] {
     outline-color: #6693A8;
 }
 
+#taskArea .hidden {
+    display: none;
+}
+
