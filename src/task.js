@@ -74,4 +74,8 @@ export function resetTask() {
     document.getElementById("taskSpace").innerHTML = "";
 }
 
+function showForm() {
+    document.querySelector("#taskSpace .hidden").classList.remove("hidden");
+}
+
 export default task;

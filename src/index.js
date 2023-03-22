@@ -54,11 +54,17 @@ function createTaskForm() {
     let taskForm = document.createElement("form");
     taskForm.setAttribute("action", "");
     taskForm.setAttribute("method", "post");
+    taskForm.id = "taskForm";
+
+    let hiddenForm = document.createElement("form");
+    hiddenForm.id = "hiddenForm"
+    hiddenForm.classList.add("hidden");
 
     let title = document.createElement("input");
     title.setAttribute("type", "text");
     title.id = "taskTitle";
     title.placeholder = "Add Todo";
+    title.addEventListener("click", showForm)
 
     let desc = document.createElement("input");
     title.setAttribute("type", "text");
@@ -95,15 +101,26 @@ function createTaskForm() {
     }
 
     taskForm.append(title);
-    taskForm.append(desc);
-    taskForm.append(date);
-    taskForm.append(prio);
-    taskForm.append(btn);
+    taskForm.append(hiddenForm);
+    hiddenForm.append(desc);
+    hiddenForm.append(date);
+    hiddenForm.append(prio);
+    hiddenForm.append(btn);
 
     document.getElementById("content").appendChild(taskArea);
     document.getElementById("taskArea").appendChild(taskForm);
     document.getElementById("taskArea").appendChild(taskSpace);
 }
+
+function showForm() {
+    document.querySelector("#taskArea .hidden").classList.remove("hidden");
+}
+
+document.addEventListener("click", (event) => {
+    if (!taskForm.contains(event.target)) {
+      document.querySelector("#taskArea #hiddenForm").classList.add("hidden");
+    }
+});
 
 createProjectForm();
 createTaskForm();
