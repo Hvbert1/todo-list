@@ -58,10 +58,15 @@ function createTaskForm() {
     let title = document.createElement("input");
     title.setAttribute("type", "text");
     title.id = "taskTitle";
+    title.placeholder = "Add Todo";
 
     let desc = document.createElement("input");
     title.setAttribute("type", "text");
     desc.id = "desc";
+    desc.placeholder = "Add description"
+
+    let prio = document.createElement("div");
+    prio.id = "priority"
 
     let date = document.createElement("input");
     date.setAttribute("type", "date");
@@ -74,27 +79,25 @@ function createTaskForm() {
         appendTask();
     }
 
-    let priorityBtn1 = document.createElement("input");
-    priorityBtn1.setAttribute("type", "radio");
-    priorityBtn1.setAttribute("name", "priority");
-    priorityBtn1.value = "low";
-
-    let priorityBtn2 = document.createElement("input");
-    priorityBtn2.setAttribute("type", "radio");
-    priorityBtn2.setAttribute("name", "priority");
-    priorityBtn2.value = "medium";
-
-    let priorityBtn3 = document.createElement("input");
-    priorityBtn3.setAttribute("type", "radio");
-    priorityBtn3.setAttribute("name", "priority");
-    priorityBtn3.value = "high";
+    const priorities = ["low", "medium", "high"];
+    for (let i = 0; i < priorities.length; i++) {
+      const priorityBtn = document.createElement("input");
+      priorityBtn.setAttribute("type", "radio");
+      priorityBtn.setAttribute("name", "priority");
+      priorityBtn.value = priorities[i];
+      priorityBtn.id = "prio" + (i + 1);
+      
+      const priorityLabel = document.createElement("label");
+      priorityLabel.innerHTML = priorities[i];
+      priorityLabel.htmlFor = "prio" + (i + 1);
+      prio.append(priorityBtn);
+      prio.append(priorityLabel);
+    }
 
     taskForm.append(title);
     taskForm.append(desc);
     taskForm.append(date);
-    taskForm.append(priorityBtn1);
-    taskForm.append(priorityBtn2);
-    taskForm.append(priorityBtn3);
+    taskForm.append(prio);
     taskForm.append(btn);
 
     document.getElementById("content").appendChild(taskArea);
