@@ -1,5 +1,4 @@
 import { selectedProject, saveProjects, projectList} from './project.js'
-import { parseISO, format } from 'date-fns'
 
 export const task = (title, description, dueDate, priority) => {
     return { title, description, dueDate, priority };
@@ -9,10 +8,9 @@ export function createTask() {
     let title = document.getElementById("taskTitle").value;
     let description = document.getElementById("desc").value;
     let date = document.getElementById("date").value;
-    let newDate = (format(parseISO(date), "dd-MM-yyyy"));
     let priority = document.querySelector('input[name="priority"]:checked').value;
 
-    const newTask = task(title, description, newDate, priority);
+    const newTask = task(title, description, date, priority);
 
     return newTask;
 }
@@ -29,15 +27,20 @@ export function displayTask(project) {
 
     for (let i = 0; i < project.tasks.length; i++) {
         let taskDiv = document.createElement("div");
-        let taskName = document.createElement("div");
-        let taskDesc = document.createElement("div");
-        let taskDate = document.createElement("div");
+        let taskName = document.createElement("input");
+        let taskDesc = document.createElement("input");
+        let taskDate = document.createElement("input");
         let taskPrio = document.createElement("div");
         let taskCheck = document.createElement("div");
+        let hiddenTask = document.createElement("div");
         
-        taskName.innerHTML = project.tasks[i].title;
-        taskDesc.innerHTML  = project.tasks[i].description;
-        taskDate.innerHTML = project.tasks[i].dueDate;
+        taskName.setAttribute("type", "text");
+        taskDesc.setAttribute("type", "text");
+        taskDate.setAttribute("type", "date");
+
+        taskName.value = project.tasks[i].title;
+        taskDesc.value  = project.tasks[i].description;
+        taskDate.value = project.tasks[i].dueDate;
         taskPrio.innerHTML = project.tasks[i].priority;
 
         taskName.classList.add("taskName");
@@ -48,6 +51,9 @@ export function displayTask(project) {
 
         taskDiv.id = i;
         taskDiv.classList.add('expendable');
+
+        hiddenForm.id = "hiddenForm"
+        hiddenForm.classList.add("hidden");
 
         taskDiv.append(taskName);
         taskDiv.append(taskDesc);
@@ -72,10 +78,6 @@ export function checkTask(task) {
 
 export function resetTask() {
     document.getElementById("taskSpace").innerHTML = "";
-}
-
-function showForm() {
-    document.querySelector("#taskSpace .hidden").classList.remove("hidden");
 }
 
 export default task;
