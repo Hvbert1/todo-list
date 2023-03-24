@@ -31,12 +31,12 @@ export function displayProject() {
 
     for (let i = 0; i < storedProjects.length; i++) {
         let projectDiv = document.createElement("div");
-        let projectDel = document.createElement("div");
+        let projectDel = document.createElement("i");
 
         projectDiv.id = i;
         projectDiv.innerHTML = storedProjects[i].name;
-        projectDel.classList.add("delProject");
-        projectDel.innerHTML = "x";
+        projectDel.classList.add("material-icons");
+        projectDel.textContent = "close";
 
         document.getElementById("projectSpace").appendChild(projectDiv);
         projectDiv.appendChild(projectDel);
