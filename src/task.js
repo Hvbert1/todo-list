@@ -42,7 +42,7 @@ export function displayTask(project) {
         taskDesc.value  = project.tasks[i].description;
         taskDate.value = project.tasks[i].dueDate;
         taskPrio.innerHTML = project.tasks[i].priority;
-        taskCheck.textContent = "check_circle";
+        taskCheck.textContent = "radio_button_unchecked";
 
         taskName.classList.add("taskName");
         taskDesc.classList.add("taskDesc");
@@ -61,8 +61,11 @@ export function displayTask(project) {
         nameContainer.append(taskName);
 
         taskCheck.addEventListener('click', function() {
-            checkTask(taskDiv);
-        })
+            taskCheck.textContent = "check_circle";
+            setTimeout(function() {
+              checkTask(taskDiv);
+            }, 1000);
+          });
 
         taskName.addEventListener('change', function(e) {
             const selectedDiv = e.target;
