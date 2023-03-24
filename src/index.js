@@ -2,6 +2,7 @@ import { appendTask } from './task.js'
 import { displayProject, appendProject } from './project.js'
 import './style.css';
 
+
 function createProjectForm() {
     let projectArea = document.createElement("div");
     projectArea.id = "projectArea";
@@ -65,10 +66,10 @@ function createTaskForm() {
 
     question.id = "question";
 
-    curMonth.innerHTML = "Mar";
-    curDate.innerHTML = "24";
+    curMonth.innerHTML = getCurMonth();
+    curDate.innerHTML = getCurDay();
 
-    curTime.innerHTML = "Good Afternoon.";
+    curTime.innerHTML = getCurTime();
     question.innerHTML = "What's your plan for today?"
 
     taskHeaderLeft.append(curMonth);
@@ -173,6 +174,40 @@ document.addEventListener("click", (event) => {
       document.querySelector("#taskArea #hiddenForm").classList.add("hidden");
     }
 });
+
+function getCurMonth() {
+    const month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    const today = new Date();
+
+    let name = month[today.getMonth()];
+
+    return name;
+}
+
+function getCurDay() {
+    var today = new Date();
+    var date = String(today.getDate()).padStart(2, '0');
+
+    return date;
+}
+
+function getCurTime() {
+    var today = new Date();
+    var hour = today.getHours();
+    var greeting;
+
+    if (hour < 12) {
+        greeting = "Good Morning.";
+    } else if (hour >= 12 && hour < 18) {
+        greeting = "Good Afternoon.";
+    } else {
+        greeting = "Good Evening.";
+    }
+
+    return greeting;
+}
+
+getCurTime();
 
 createProjectForm();
 createTaskForm();
