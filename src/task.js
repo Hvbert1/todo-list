@@ -97,6 +97,13 @@ export function displayTask(project) {
     }
 }
 
+export function checkTask(task) {
+    selectedProject.tasks.splice(task.id, 1);
+    displayTask(selectedProject);
+
+    saveProjects();
+}
+
 export function resetTask() {
     document.getElementById("taskSpace").innerHTML = "";
 }
