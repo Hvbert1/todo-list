@@ -96,7 +96,7 @@ export function displayTask(project) {
             saveProjects(); 
         });
 
-        document.getElementById("taskSpace").appendChild(taskDiv);
+        document.getElementById("taskDiv").appendChild(taskDiv);
     }
 }
 
@@ -108,7 +108,7 @@ export function checkTask(task) {
 }
 
 export function resetTask() {
-    document.getElementById("taskSpace").innerHTML = "";
+    document.getElementById("taskDiv").innerHTML = "";
 }
 
 export default task;
