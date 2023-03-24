@@ -17,6 +17,10 @@
     gap: 1rem;
 }
 
+#projectArea div {
+    margin-left: 10px;
+}
+
 #projectArea #title {
     font-size: 3rem;
 }
@@ -31,6 +35,10 @@
     color: #E7E7E6;
     font-size: 1rem;
     width: 50%;
+    padding: 8px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    outline-color: #6693A8;
 }
 
 #projectArea button {
@@ -43,7 +51,7 @@
 #projectSpace {
     display: grid;
     max-width: 100%;
-    gap: 1rem;
+    gap: 1.5rem;
     margin-left: 20px;
 }
 
@@ -52,26 +60,29 @@
     grid-template-columns: 5fr 1fr;
     max-width: 90%;
     align-self: center;
-    font-size: 1rem;
+    font-size: 1.1rem;
     cursor: pointer;
 }
 
-#projectSpace .selected{
+#projectSpace .selected {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     color: #E7E7E6;
     padding: .5rem 1rem;
     background-color: #6693A8;
     border-radius: 5px;
-    max-width: 70%;
+    max-width: 60%;
 }
 
-#projectSpace .selected .delProject{
+#projectSpace .selected .material-icons{
     color: #E7E7E6;
+    font-size: 1rem;
+    font-weight: bold;
 }
 
-#projectSpace .delProject {
+#projectSpace .material-icons {
     color: #2a2a2a;
-    font-weight: bold;
-    padding: 0;
 }
 
 #taskArea {
@@ -83,12 +94,53 @@
     gap: 1rem;
 }
 
+#taskHeader {
+    margin-left: 20px;
+    align-self: flex-start;
+    display: flex;
+    font-size: 2rem;
+    gap: 1rem;
+    color: #E7E7E6;
+}
+
+#question {
+    color: lightslategray;
+}
+
+#taskHeaderLeft {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
 #taskArea form {
     display: flex;
     flex-direction: column;
     background-color: #2a2a2a;
-    width: 50%;
+    gap: 1rem;
     padding: 1rem;
+    min-width: 200px;
+}
+
+#taskArea input[type=text] {
+    width: 90%;
+    margin-left: 15px;
+    height: 1.5rem;
+    border: none;
+}
+
+#taskArea #hiddenForm {
+    width: 90%;
+}
+
+#taskArea .hidden {
+    display: none;
+}
+
+#taskArea #hiddenForm #priority {
+    display: flex;
     gap: 1rem;
 }
 
@@ -101,29 +153,55 @@
 }
 
 #taskSpace div {
+    display: flex;
+    align-items: center;
     padding: 1rem 2rem;
-    background-color: #6693A8;
-    font-size: 2rem;
+    background-color: #2a2a2a;
+    font-size: 1.5rem;
     border-radius: 5px;
+    min-width: 200px;
+    height: 100px;
 }
 
-#taskSpace div .taskCheck {
-    background-color: orange;
+#taskSpace div .nameContainer {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    justify-content: start;
+}
+
+#taskSpace div .material-icons {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+#taskSpace div input[type=text]{
+    background-color: #2a2a2a;
+    border: none;
+    color: #E7E7E6;
+    font-size: 1rem;
+}
+
+
+#taskSpace div input[type=date]{
+    background-color: #2a2a2a;
+    border: none;
+    color: #E7E7E6;
+    color-scheme: dark;
+    font-size: .8rem;
+    width: 65%;
+    margin-left: 13px;
+}
+
+#taskSpace div .taskDesc {
+    width: 200px;
+}
+
+#taskSpace div .taskPrio {
+    justify-content: flex-end;
 }
 
 button {
     background-color: #6693A8;
     padding: 15px 32px;
-}
-
-input[type=text] {
-    padding: 8px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    outline-color: #6693A8;
-}
-
-#taskArea .hidden {
-    display: none;
 }
 
