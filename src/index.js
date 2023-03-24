@@ -86,6 +86,9 @@ function createTaskForm() {
     let taskSpace = document.createElement("div");
     taskSpace.id = "taskSpace";
 
+    let taskDiv = document.createElement("div");
+    taskDiv.id = "taskDiv";
+
     let taskForm = document.createElement("form");
     taskForm.setAttribute("action", "");
     taskForm.setAttribute("method", "post");
@@ -98,7 +101,7 @@ function createTaskForm() {
     let title = document.createElement("input");
     title.setAttribute("type", "text");
     title.id = "taskTitle";
-    title.placeholder = "Add Todo";
+    title.placeholder = "Add Todo Name";
     title.addEventListener("click", function() {
         showForm("#taskArea .hidden", "hidden");
     });
@@ -126,8 +129,9 @@ function createTaskForm() {
     dateLabel.htmlFor = "date";
     dateLabel.innerHTML = "Date";
 
-
     let btn = document.createElement("button");
+    btn.classList.add("material-icons");
+    btn.textContent = "add_box";
     btn.setAttribute("type", "submit");
     btn.onclick = function test(e) {
         e.preventDefault();
@@ -161,8 +165,9 @@ function createTaskForm() {
     hiddenForm.append(btn);
 
     document.getElementById("content").appendChild(taskArea);
-    document.getElementById("taskArea").appendChild(taskForm);
     document.getElementById("taskArea").appendChild(taskSpace);
+    document.getElementById("taskSpace").appendChild(taskForm);
+    document.getElementById("taskSpace").appendChild(taskDiv);
 }
 
 export function showForm(input, target) {
@@ -208,7 +213,6 @@ function getCurTime() {
 }
 
 getCurTime();
-
 createProjectForm();
 createTaskForm();
 displayProject();
