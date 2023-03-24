@@ -48,6 +48,40 @@ function createTaskForm() {
     let taskArea = document.createElement("div");
     taskArea.id = "taskArea";
 
+    let taskHeader = document.createElement("div");
+    taskHeader.id = "taskHeader";
+
+    let taskHeaderLeft = document.createElement("div");
+    taskHeaderLeft.id = "taskHeaderLeft";
+
+    let taskHeaderRight = document.createElement("div");
+    taskHeaderRight.id = "taskHeaderRight";
+
+    let curMonth = document.createElement("div");
+    let curDate = document.createElement("div");
+
+    let curTime = document.createElement("div");
+    let question = document.createElement("div");
+
+    question.id = "question";
+
+    curMonth.innerHTML = "Mar";
+    curDate.innerHTML = "24";
+
+    curTime.innerHTML = "Good Afternoon.";
+    question.innerHTML = "What's your plan for today?"
+
+    taskHeaderLeft.append(curMonth);
+    taskHeaderLeft.append(curDate);
+
+    taskHeaderRight.append(curTime);
+    taskHeaderRight.append(question);
+
+    taskHeader.append(taskHeaderLeft);
+    taskHeader.append(taskHeaderRight);
+
+    taskArea.append(taskHeader);
+
     let taskSpace = document.createElement("div");
     taskSpace.id = "taskSpace";
 
@@ -64,7 +98,9 @@ function createTaskForm() {
     title.setAttribute("type", "text");
     title.id = "taskTitle";
     title.placeholder = "Add Todo";
-    title.addEventListener("click", showForm)
+    title.addEventListener("click", function() {
+        showForm("#taskArea .hidden", "hidden");
+    });
 
     let desc = document.createElement("input");
     title.setAttribute("type", "text");
@@ -128,8 +164,8 @@ function createTaskForm() {
     document.getElementById("taskArea").appendChild(taskSpace);
 }
 
-function showForm() {
-    document.querySelector("#taskArea .hidden").classList.remove("hidden");
+export function showForm(input, target) {
+    document.querySelector(input).classList.remove(target);
 }
 
 document.addEventListener("click", (event) => {
