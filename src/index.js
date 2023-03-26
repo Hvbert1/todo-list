@@ -9,7 +9,7 @@ function createProjectForm() {
 
     let title = document.createElement("div");
     title.id = "title";
-    title.innerHTML = "Todo-list";
+    title.innerHTML = "task<span style='color: #6693A8;'>Tickler</span>";
 
     let projectSpace = document.createElement("div");
     projectSpace.id = "projectSpace";
@@ -33,6 +33,7 @@ function createProjectForm() {
     btn.onclick = function test(e) {
         e.preventDefault();
         appendProject();
+        project.value = "Default List";    
     }
 
     projectForm.append(project);
