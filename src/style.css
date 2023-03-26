@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 #content {
@@ -146,6 +147,22 @@
 
 #taskArea .hidden {
     display: none;
+}
+
+#taskArea #hiddenForm #desc {
+    background-color: #2a2a2a;
+    font-size: 1rem;
+    color: #E7E7E6;
+    border: none;
+}
+
+#taskArea #hiddenForm input[type=date] {
+    background-color: #2a2a2a;
+    border: none;
+    color: #717171;
+    color-scheme: dark;
+    font-size: 1rem;
+    width: 30%;
 }
 
 #taskArea #hiddenForm #priority {
