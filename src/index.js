@@ -136,6 +136,8 @@ function createTaskForm() {
     btn.onclick = function test(e) {
         e.preventDefault();
         appendTask();
+        taskForm.reset();
+        hiddenForm.reset();
     }
 
     const priorities = ["low", "medium", "high"];
