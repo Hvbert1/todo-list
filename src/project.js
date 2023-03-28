@@ -80,9 +80,12 @@ export function resetProject() {
 export function loadProjects() {
     storedProjects = JSON.parse(localStorage.getItem("projects"));
 
-    for (let i = 0; i < storedProjects.length; i++) {
-        projectList[i] = storedProjects[i];
-    }   
+    if (storedProjects != null) {
+        for (let i = 0; i < storedProjects.length; i++) {
+            projectList[i] = storedProjects[i];
+        }
+        return;   
+    }
 }
 
 export function saveProjects() {
